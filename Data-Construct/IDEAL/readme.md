@@ -37,13 +37,13 @@ $$
 对某个 $\beta_j$ 求导用链式法则拆成：
 
 $$
-\frac{\partial Q}{\partial \beta_j} = \left( \frac{\partial L(D_{\text{ref}}, \theta^*)}{\partial \theta^*} \right)^{\top} \frac{\partial \theta^*}{\partial \beta_j}
+\frac{\partial Q}{\partial \beta_j} = \left( \frac{\partial L(D_{\text{ref}}, \theta^{*})}{\partial \theta^{*}} \right)^{\top} \frac{\partial \theta^{*}}{\partial \beta_j}
 $$
 
 在初始状态 $\beta=(0,..,0)$ 处，利用隐函数定理可解得：
 
 $$
-\frac{\partial \theta^*}{\partial \beta_j} = -\left[ \nabla^2 L(D_{\text{tr}}, \theta^*) \right]^{-1} \nabla L(D_j, \theta^*)
+\frac{\partial \theta^{*}}{\partial \beta_j} = -\left[ \nabla^2 L(D_{\text{tr}}, \theta^{*}) \right]^{-1} \nabla L(D_j, \theta^{*})
 $$
 
 ,于是配比方向最终由”参考集梯度 x Hessian逆 x 领域梯度“这个二阶量决定。
