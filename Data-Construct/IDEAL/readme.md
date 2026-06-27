@@ -34,7 +34,7 @@ $$
 Q(\beta) \coloneqq L(D_{\text{ref}}, \theta^*)
 $$
 
-对某个 $\beta_j$ 求导用链式法则拆成：
+对某个 $\beta_j$ 求导用链式法则拆成:
 
 $$
 \frac{\partial Q}{\partial \beta_j} = \left( \frac{\partial L(D_{\text{ref}}, \theta^{*})}{\partial \theta^{*}} \right)^{\top} \frac{\partial \theta^{*}}{\partial \beta_j}
