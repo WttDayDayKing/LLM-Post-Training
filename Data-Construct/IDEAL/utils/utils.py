@@ -9,16 +9,16 @@ from transformers import LlamaForCausalLM, LlamaTokenizer, PreTrainedTokenizerFa
 
 def load_model(model_path: str,
                torch_dtype: Any = torch.bfloat16) -> Any:
-    # model = AutoModelForCausalLM.from_pretrained(model_name_or_path, torch_dtype=torch_dtype, device_map="auto", trust_remote_code=True)
-    # tokenizer = AutoTokenizer.from_pretrained(model_name_or_path, trust_remote_code=True)
-    try:
-        tokenizer = PreTrainedTokenizerFast.from_pretrained(model_path)
-        # print("Using PreTrainedTokenizerFast.")
-    except Exception as e:
-        print(f"Failed to load PreTrainedTokenizerFast: {e}. Trying LlamaTokenizer...")
-        tokenizer = LlamaTokenizer.from_pretrained(model_path, legacy=False)
+    model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=torch_dtype, device_map="auto", trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+    # try:
+    #     tokenizer = PreTrainedTokenizerFast.from_pretrained(model_path)
+    #     # print("Using PreTrainedTokenizerFast.")
+    # except Exception as e:
+    #     print(f"Failed to load PreTrainedTokenizerFast: {e}. Trying LlamaTokenizer...")
+    #     tokenizer = LlamaTokenizer.from_pretrained(model_path, legacy=False)
     
-    model = LlamaForCausalLM.from_pretrained(model_path, torch_dtype=torch_dtype, device_map="auto")
+    # model = LlamaForCausalLM.from_pretrained(model_path, torch_dtype=torch_dtype, device_map="auto")
 
     return model, tokenizer
 

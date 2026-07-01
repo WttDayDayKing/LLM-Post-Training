@@ -135,14 +135,14 @@ def list_subdirectories(directory):
 
 if __name__=='__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-path", type=str, value="/kpfs/intern-legal/model/Qwen2.5-7B-Instruct", default=f"Path of YOUR base model")
-    parser.add_argument("--full-train", type=str, value="/kpfs/intern-legal/dataset/SFT/UltraData-SFT-2605/data/no_think",default=f"Path of YOUR full train dataset")
-    parser.add_argument("--validation-path", type=str, default=f"Path of YOUR validation dataset")
-    parser.add_argument("--sub-train", type=list, default=[f"Math","Code","IF"])#Mathematics","Coding","bbh","Instruction","TrustAI"
+    parser.add_argument("--model-path", type=str, default="/kpfs/intern-legal/model/Qwen2.5-0.5B-Instruct/Qwen/Qwen2.5-0.5B-Instruct")
+    parser.add_argument("--full-train", type=str, default="/kpfs/user/wtt/dataset/ultra/train")
+    parser.add_argument("--validation-path", type=str, default=f"/kpfs/user/wtt/dataset/ultra/val")
+    parser.add_argument("--sub-train", type=list, default=[f"Math","Code","IF","Knowledge","Chinese-general"])#Mathematics","Coding","bbh","Instruction","TrustAI"
     parser.add_argument("--save-path", type=str, value="/kpfs/user/wtt/LLM-Post-Training/Data-Construct/IDEAL/outputs", default=f"Path of YOUR save folder")
     parser.add_argument("--use-full-layer", type=bool, default=True)
     parser.add_argument("--target-layers", type=list, default=["model.layers.1.mlp.gate_proj", "model.layers.5.mlp.gate_proj", "model.layers.10.mlp.gate_proj", "model.layers.15.mlp.gate_proj"
-    "model.layers.20.mlp.gate_proj", "model.layers.24.mlp.gate_proj", "model.layers.25.mlp.gate_proj", "model.layers.26.mlp.gate_proj", "model.layers.27.mlp.gate_proj", "model.layers.28.mlp.gate_proj"])
+    "model.layers.20.mlp.gate_proj", "model.layers.25.mlp.gate_proj", "model.layers.26.mlp.gate_proj", "model.layers.27.mlp.gate_proj", "model.layers.28.mlp.gate_proj"])
     parser.add_argument("--without-output", type=bool, default=True)
     parser.add_argument("--without-attention", type=bool, default=True)
     args = parser.parse_args()
